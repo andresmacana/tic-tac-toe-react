@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-const Square = ({ value }) => {
+const Square = ({ squares, index, onSquareClick }) => {
   //const [value, setValue] = useState(null);
 
-  function onSquareClick() {
-    console.log("clicked");
-  }
+  /* unction onSquareClick() {
+    console.log("clicked"); */
+
   return (
-    <button className="square" onClick={onSquareClick}>
-      {value}
+    <button className="square" onClick={onSquareClick.bind({}, index)}>
+      {squares[index]}
     </button>
   );
 };
