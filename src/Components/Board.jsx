@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Square from "./Square";
 import { useState } from "react";
-import calculateWinner from "./common/calculateWinner";
+import calculateWinner from "../common/calculateWinner";
 
 const Board = () => {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const onSquareClick = (index) => {
-    console.log(` clicked button number: ${index + 1}`);
+    if (squares[index]) {
+      return;
+    }
+    //console.log(` clicked button number: ${index + 1}`);
 
     const nextSquares = [...squares];
 
@@ -37,7 +40,7 @@ const Board = () => {
         <Square squares={squares} index={7} onSquareClick={onSquareClick} />
         <Square squares={squares} index={8} onSquareClick={onSquareClick} />
       </div>
-      <div>next playex</div>
+      <div>next playex: {xIsNext ? "X" : "O"}</div>
       <div>Winner: {calculateWinner(squares)}</div>
     </>
   );

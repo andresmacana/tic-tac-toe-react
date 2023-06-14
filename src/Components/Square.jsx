@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Square = ({ squares, index, onSquareClick }) => {
   //const [value, setValue] = useState(null);
